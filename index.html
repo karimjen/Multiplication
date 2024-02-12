@@ -9,7 +9,8 @@
 </head>
 
 <body>
-
+    <input type="text" id="res">
+    <button id="monBouton">Cliquez-moi</button>
     <script>
         // Fonction pour générer un problème aléatoire
         function generateProblem() {
@@ -17,26 +18,21 @@
             let a = Math.floor(Math.random() * 10) + 1;
             let b = Math.floor(Math.random() * 10) + 1;
             let c = a * b;
-
+            let res = document.getElementById("res");
             // Afficher le nombre aléatoire dans la page
             document.getElementById("problem").innerHTML = "<p>" + a + " x " + b + " = </p>";
-
-            // Créer et ajouter la zone de texte et le bouton dans le résultat
-            let resultSection = document.getElementById("result");
-            resultSection.innerHTML = '<input type="text" id="res">';
-            resultSection.innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
         }
-
-        // Fonction pour vérifier la réponse
-        function checkAnswer(result) {
-            let inputRes = document.getElementById("res");
-
-            if (parseInt(inputRes.value) === result) {
-                document.getElementById("result").innerHTML += "<p>Bravo, c'est correct!</p>";
-            } else {
-                document.getElementById("result").innerHTML += "<p>Faux, réessaie!</p>";
+        // Sélectionnez l'élément sur lequel vous souhaitez écouter l'événement
+        var bouton = document.getElementById("monBouton");
+    
+        // Ajoutez un écouteur d'événements
+        bouton.addEventListener("click", function() {
+            if res==c{
+        alert("bonne reponse");
+            }else{
+                 alert("faux la reponse etait"+c);
             }
-        }
+        });
 
         // Fonction pour recommencer
         function restart() {
