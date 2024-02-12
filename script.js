@@ -4,13 +4,13 @@
             let a = Math.floor(Math.random() * 10) + 1;
             let b = Math.floor(Math.random() * 10) + 1;
             let c = a * b;
-            let res = document.getElementById("res");
             // Afficher le nombre aléatoire dans la page
             document.getElementById("problem").innerHTML = "<p>" + a + " x " + b + " = </p>";
         }
         // Sélectionnez l'élément sur lequel vous souhaitez écouter l'événement
         var bouton = document.getElementById("monBouton");
-    
+        
+        let res = document.getElementById("res");
         // Ajoutez un écouteur d'événements
         bouton.addEventListener("click", function() {
             if res==c{
@@ -19,7 +19,7 @@
                  alert("faux la reponse etait"+c);
             }
         });
-
+      
         // Fonction pour recommencer
         function restart() {
             generateProblem(); // Régénérer le problème
