@@ -9,6 +9,7 @@
 <body>
 
 <script>
+    // Fonction pour générer un problème aléatoire
     function generateProblem() {
         // Générer un nombre aléatoire entre 1 et 10
         let a = Math.floor(Math.random() * 10) + 1;
@@ -16,24 +17,38 @@
         let c = a * b;
 
         // Afficher le nombre aléatoire dans la page
-        document.body.innerHTML = "<p>" + a + " x " + b + " = </p>";
-        document.body.innerHTML += '<input type="text" id="res"> </input>';
-        document.body.innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
+        document.getElementById("problem").innerHTML = "<p>" + a + " x " + b + " = </p>";
+        document.getElementById("result").innerHTML = '<input type="text" id="res"> </input>';
+        document.getElementById("result").innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
     }
 
+    // Fonction pour vérifier la réponse
     function checkAnswer(result) {
         let inputRes = document.getElementById("res");
         
         if (parseInt(inputRes.value) === result) {
-            document.body.innerHTML += "<p>Bravo, c'est correct!</p>";
+            document.getElementById("result").innerHTML += "<p>Bravo, c'est correct!</p>";
         } else {
-            document.body.innerHTML += "<p>Faux, réessaie!</p>";
+            document.getElementById("result").innerHTML += "<p>Faux, réessaie!</p>";
         }
+    }
+
+    // Fonction pour recommencer
+    function restart() {
+        generateProblem(); // Régénérer le problème
+        document.getElementById("result").innerHTML = ''; // Effacer les résultats précédents
     }
 
     // Appeler la fonction au chargement de la page pour générer le premier problème
     generateProblem();
 </script>
+
+<!-- Conteneurs pour le problème et le résultat -->
+<div id="problem"></div>
+<div id="result"></div>
+
+<!-- Bouton "Recommencer" -->
+<button onclick="restart()">Recommencer</button>
 
 </body>
 </html>
