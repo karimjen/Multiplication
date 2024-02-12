@@ -18,8 +18,13 @@
             let b = Math.floor(Math.random() * 10) + 1;
             let c = a * b;
 
-            // Afficher le nombre aléatoire dans la page
-            document.getElementById("problem").innerHTML = "<p>Quelle est la valeur de " + a + " x " + b + " ?</p>";
+            // Créer une nouvelle balise <p> pour afficher le problème
+            let problemParagraph = document.createElement("p");
+            problemParagraph.innerHTML = "Quelle est la valeur de " + a + " x " + b + " ?";
+            
+            // Supprimer le contenu existant et ajouter la nouvelle balise <p>
+            document.getElementById("problem").innerHTML = '';
+            document.getElementById("problem").appendChild(problemParagraph);
 
             // Stocker la réponse dans une variable globale
             window.correctAnswer = c;
@@ -61,3 +66,4 @@
 </body>
 
 </html>
+
