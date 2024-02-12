@@ -18,19 +18,23 @@
             let b = Math.floor(Math.random() * 10) + 1;
             let c = a * b;
 
-            // Créer une nouvelle balise <p> pour afficher le problème
-            let problemParagraph = document.createElement("p");
-            problemParagraph.innerHTML = "Quelle est la valeur de " + a + " x " + b + " ?";
-            
-            // Supprimer le contenu existant et ajouter la nouvelle balise <p>
-            document.getElementById("problem").innerHTML = '';
-            document.getElementById("problem").appendChild(problemParagraph);
+            // Afficher le problème directement dans la balise <p>
+            document.getElementById("problem").innerHTML = "Quelle est la valeur de " + a + " x " + b + " ?";
 
             // Stocker la réponse dans une variable globale
             window.correctAnswer = c;
         }
 
-        // Sélectionnez l'élément sur lequel vous souhaitez écouter l'événement
+        </script>
+
+    <!-- Conteneurs pour le problème et le résultat -->
+    <p id="problem"></p>
+    <input type="text" id="res">
+    <button id="monBouton">Vérifier</button>
+
+    <button onclick="restart()">Recommencer</button>
+<script>
+// Sélectionnez l'élément sur lequel vous souhaitez écouter l'événement
         var bouton = document.getElementById("monBouton");
 
         // Ajoutez un écouteur d'événements
@@ -57,13 +61,6 @@
         generateProblem();
 
     </script>
-    <!-- Conteneurs pour le problème et le résultat -->
-    <div id="problem"></div>
-    <input type="text" id="res">
-    <button id="monBouton">Vérifier</button>
-
-    <button onclick="restart()">Recommencer</button>
 </body>
 
 </html>
-
