@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nombre Aléatoire</title>
 </head>
+
 <body>
 
-<script>
-    // Fonction pour générer un problème aléatoire
-    function generateProblem() {
-        // Générer un nombre aléatoire entre 1 et 10
-        let a = Math.floor(Math.random() * 10) + 1;
-        let b = Math.floor(Math.random() * 10) + 1;
-        let c = a * b;
+    <script>
+        // Fonction pour générer un problème aléatoire
+        function generateProblem() {
+            // Générer un nombre aléatoire entre 1 et 10
+            let a = Math.floor(Math.random() * 10) + 1;
+            let b = Math.floor(Math.random() * 10) + 1;
+            let c = a * b;
 
-        // Afficher le nombre aléatoire dans la page
-        document.getElementById("problem").innerHTML = "<p>" + a + " x " + b + " = </p>";
-        document.getElementById("result").innerHTML = '<input type="text" id="res">';
-        document.getElementById("result").innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
-    }
+            // Afficher le nombre aléatoire dans la page
+            document.getElementById("problem").innerHTML = "<p>" + a + " x " + b + " = </p>";
 
-    // Fonction pour vérifier la réponse
-    function checkAnswer(result) {
-        let inputRes = document.getElementById("res");
-        
-        if (parseInt(inputRes.value) === result) {
-            document.getElementById("result").innerHTML += "<p>Bravo, c'est correct!</p>";
-        } else {
-            document.getElementById("result").innerHTML += "<p>Faux, réessaie!</p>";
+            // Créer et ajouter la zone de texte et le bouton dans le résultat
+            let resultSection = document.getElementById("result");
+            resultSection.innerHTML = '<input type="text" id="res">';
+            resultSection.innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
         }
-    }
 
-    // Fonction pour recommencer
-    function restart() {
-        generateProblem(); // Régénérer le problème
-        document.getElementById("result").innerHTML = ''; // Effacer les résultats précédents
-    }
+        // Fonction pour vérifier la réponse
+        function checkAnswer(result) {
+            let inputRes = document.getElementById("res");
 
-    // Appeler la fonction au chargement de la page pour générer le premier problème
-    generateProblem();
-</script>
+            if (parseInt(inputRes.value) === result) {
+                document.getElementById("result").innerHTML += "<p>Bravo, c'est correct!</p>";
+            } else {
+                document.getElementById("result").innerHTML += "<p>Faux, réessaie!</p>";
+            }
+        }
 
-<!-- Conteneurs pour le problème et le résultat -->
-<div id="problem"></div>
-<div id="result"></div>
+        // Fonction pour recommencer
+        function restart() {
+            generateProblem(); // Régénérer le problème
+            document.getElementById("result").innerHTML = ''; // Effacer les résultats précédents
+        }
 
-<!-- Bouton "Recommencer" -->
-<button onclick="restart()">Recommencer</button>
+        // Appeler la fonction au chargement de la page pour générer le premier problème
+        generateProblem();
+    </script>
+
+    <!-- Conteneurs pour le problème et le résultat -->
+    <div id="problem"></div>
+    <div id="result"></div>
+
+    <!-- Bouton "Recommencer" -->
+    <button onclick="restart()">Recommencer</button>
 
 </body>
+
 </html>
