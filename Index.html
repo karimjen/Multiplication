@@ -9,15 +9,29 @@
 <body>
 
 <script>
-    let i =1;
-    while i==0{
-    // Générer un nombre aléatoire entre 1 et 10
-    let a = Math.floor(Math.random() * 10) + 1;
-    let b = Math.floor(Math.random() * 10) + 1;
-    let c=a*c;
-    // Afficher le nombre aléatoire dans la page
-    document.body.innerHTML = "<h1> " + a + "x"+b+" =</h1>
-    ";
+    let i = 1;
+    while (i !== 0) {
+        // Générer un nombre aléatoire entre 1 et 10
+        let a = Math.floor(Math.random() * 10) + 1;
+        let b = Math.floor(Math.random() * 10) + 1;
+        let c = a * b;
+
+        // Afficher le nombre aléatoire dans la page
+        document.body.innerHTML += "<p>" + a + " x " + b + " = </p>";
+        document.body.innerHTML += '<input type="text" id="res"> </input>';
+        let inputRes = document.getElementById("res");
+
+        // Ajouter un bouton pour vérifier la réponse
+        document.body.innerHTML += '<button onclick="checkAnswer(' + c + ')">Vérifier</button>';
+
+        function checkAnswer(result) {
+            if (parseInt(inputRes.value) === result) {
+                document.body.innerHTML += "<p>Bravo, c'est correct!</p>";
+            } else {
+                document.body.innerHTML += "<p>Faux, réessaie!</p>";
+            }
+        }
+
     }
 </script>
 
